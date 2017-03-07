@@ -1,10 +1,15 @@
 'use strict';
 
 angular.module('workyFrontApp')
-  .controller('HomeCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('HomeCtrl', function ($uibModal, $timeout) {
+    var viewModel = this;
+
+    function showLoginModal() {
+      var modal = $uibModal.open({
+        templateUrl: 'views/templates/login.html',
+
+
+      })
+    }
+
   });
