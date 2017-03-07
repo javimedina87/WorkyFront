@@ -6,6 +6,7 @@
     <title>Titulo Worky</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="styles/main.css">
   </head>
@@ -14,12 +15,14 @@
 
     <div class="header">
         <div class="container-fluid">
-            <ul class="nav navbar-nav">
-              <li><a ui-sref="home">Home item</a></li>
-              <li><a ui-sref="about">About item</a></li>
-              <li><a>Login modal</a></li>
-              <li><a>Register modal</a></li>
-            </ul>
+              <div class="nav navbar-nav navbar-left">
+                <li><a ui-sref="home">Home item</a></li>
+                <li><a ui-sref="about">About item</a></li>
+              </div>
+              <div class="nav navbar-nav navbar-right">
+                <li><a>Login modal</a></li>
+                <li><a>Register modal</a></li>
+              </div>
         </div>
     </div>
 
