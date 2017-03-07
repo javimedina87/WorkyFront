@@ -1,35 +1,35 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name workyFrontApp
- * @description
- * # workyFrontApp
- *
- * Main module of the application.
- */
 angular
   .module('workyFrontApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute',
+    'ui.router',
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+  .config(function ($stateProvider, $urlRouterProvider) {
+
+    $urlRouterProvider.otherwise('/error');
+
+    $stateProvider
+      .state('home', {
+        url: '/home',
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl',
+        controllerAs: 'home'
       })
-      .when('/about', {
+      .state('about', {
+        url: '/about',
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .otherwise({
-        redirectTo: '/'
+      .state('error', {
+        url: '/error',
+        templateUrl: 'views/error.html',
+        controller: 'ErrorCtrl',
+        controllerAs: 'error'
       });
   });
