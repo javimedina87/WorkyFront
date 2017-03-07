@@ -2,6 +2,6 @@
 
 angular.module('workyFrontApp')
   .controller('HomeCtrl', function () {
-    var viewModel = this;
+    var vm = this;
 
   });

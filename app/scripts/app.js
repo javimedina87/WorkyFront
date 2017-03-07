@@ -6,6 +6,7 @@ angular
     'ngCookies',
     'ngResource',
     'ui.router',
+    'ui.bootstrap',
     'ngSanitize',
     'ngTouch'
   ])
