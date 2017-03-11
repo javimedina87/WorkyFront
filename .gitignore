@@ -2,3 +2,5 @@
 /.tmp
 /.sass-cache
 .idea/workspace.xml
+/bower_components
+/node_modules
