@@ -27,6 +27,18 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .state('pomodoro', {
+        url: '/pomodoro',
+        templateUrl: 'views/pomodoro.html',
+        controller: 'PomodoroCtrl',
+        controllerAs: 'pomodoro'
+      })
+      .state('products', {
+        url: '/products',
+        templateUrl: 'views/products.html',
+        controller: 'ProductsCtrl',
+        controllerAs: 'products'
+      })
       .state('error', {
         url: '/error',
         templateUrl: 'views/error.html',
