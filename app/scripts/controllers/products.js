@@ -4,9 +4,37 @@ angular.module('workyFrontApp')
   .controller('ProductsCtrl', function ($http, ProductService) {
     var vm = this;
 
+    activateUsers();
 
-    vm.users = ProductService.loadAllUsers();
-    console.log(vm.users);
+    function activateUsers() {
+      console.log('1');
+      return getUsers().then(function () {
+        console.log('4');
+        console.log('Users activated');
+      });
+    }
+
+    function getUsers() {
+      console.log('2');
+      return ProductService.getAllUsers()
+        .then(function(data) {
+          console.log('3');
+          vm.users = data;
+          return vm.users;
+      });
+    }
+
+/*    vm.users = ProductService.loadAllUsers();
+    console.log(vm.users);*/
+
+    /*function getAllUsers() {
+      ProductService.loadAllUsers().then(function (data) {
+        vm.users = data;
+      }, function (error) {
+        console.log('error load users controller');
+      });
+    }
+    getAllUsers();*/
 
 
 /*    function loadBooks() {
