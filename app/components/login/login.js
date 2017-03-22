@@ -2,12 +2,12 @@
 
 angular
   .module('workyFrontApp')
-  .component('topBar', {
-    templateUrl: 'scripts/components/topbar/topbar.html',
-    controller: 'TopBarCtrl',
-    controllerAs: 'vm'
+  .component('login', {
+    templateUrl: 'components/login/login.html',
+    controller: 'LoginController',
+    controllerAs: 'loginCtrl'
   })
-  .controller('TopBarCtrl', function($uibModal, $log) {
+  .controller('LoginController', function($uibModal, $log) {
     var viewModel = this;
 
     //Login modal

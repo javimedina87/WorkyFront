@@ -13,7 +13,17 @@
 
   <body ng-app="workyFrontApp">
 
-    <top-bar></top-bar>
+    <div class="header">
+      <div class="container-fluid">
+        <div class="nav navbar-nav navbar-left">
+          <li><a ui-sref="home">Home item</a></li>
+          <li><a ui-sref="about">About item</a></li>
+          <li><a ui-sref="pomodoro">Pomodoro</a></li>
+          <li><a ui-sref="products">Products</a></li>
+        </div>
+        <login></login>
+      </div>
+    </div>
 
     <div class="container-fluid body-app">
       <ui-view></ui-view>
@@ -22,9 +32,6 @@
     <div class="footer">
       <p>Footer</p>
     </div>
-
-
-
 
 
     <!--Bower scripts-->
@@ -40,15 +47,14 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 
     <!--App scripts-->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/home.js"></script>
-    <script src="scripts/controllers/about.js"></script>
-    <script src="scripts/controllers/login.js"></script>
-    <script src="scripts/controllers/pomodoro.js"></script>
-    <script src="scripts/controllers/products.js"></script>
-    <script src="scripts/controllers/error.js"></script>
-    <script src="scripts/components/topbar/topbar.js"></script>
-    <script src="scripts/services/product.service.js"></script>
+    <script src="app.js"></script>
+    <script src="components/home/home.controller.js"></script>
+    <script src="components/about/about.controller.js"></script>
+    <script src="components/login/login.js"></script>
+    <script src="components/pomodoro/pomodoro.controller.js"></script>
+    <script src="components/products/products.controller.js"></script>
+    <script src="components/error/error.controller.js"></script>
+    <script src="components/products/product.service.js"></script>
 
 </body>
 </html>

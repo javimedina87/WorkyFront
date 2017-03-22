@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Mi primera extension",
+  "description":"Descripcion de la extension",
+  "browser_action": {
+  "default_title":"Hello pomodoro"
+  },
+  "externally_connectable": {
+    "matches": ["*://localhost/*", "http://localhost:9000/#!/pomodoro"]
+  },
+  "version":"1",
+  "background": {
+  "scripts":["background.js"]
+  },
+  "permissions": [
+    "tabs"
+  ]
+}

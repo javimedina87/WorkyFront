@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('workyFrontApp')
-  .controller('ErrorCtrl', function () {
+  .controller('ErrorController', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
