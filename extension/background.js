@@ -14,10 +14,24 @@ chrome.runtime.onMessageExternal.addListener(
 
 chrome.webRequest.onBeforeRequest.addListener(
   function(details) {
-
     //Set url error from my project to being redirected
-    var workyFrontError = "http://localhost:9000/#!/pomodoro";
+    var workyFrontError = "http://localhost:9000/#!/error";
 
-    return {redirectUrl:workyFrontError};
+    //List of blocked tabs from pomodoro.controller
+    var blackTabList = "http://www.facebook.com/";
+
+    if(details.url == blackTabList){
+      return {redirectUrl:workyFrontError};
+    }else{
+      return {cancel:false};
+    }
+
+
+
   },
-  { urls: ["*://*.facebook.com/*", "*://*.facebook.net/*"] }, ["blocking"]);
+  { urls: ["<all_urls>"] }, ["blocking"]);
+
+
+
+
+/*{ urls: ["*://!*.facebook.com/!*", "*://!*.facebook.net/!*"] }, ["blocking"]);*/
