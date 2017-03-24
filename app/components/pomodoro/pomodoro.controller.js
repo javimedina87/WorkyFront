@@ -1,46 +1,22 @@
 'use strict';
 
 angular.module('workyFrontApp')
-  .controller('PomodoroController', function () {
+  .controller('PomodoroController', function ($q) {
+
     var vm = this;
+    var extensionId = "naamghdpjgcdlonhgaadkdfenbohjbcj";
+    vm.showTabs = false;
 
-    var hasExtension = false;
-    var id = '123123123';
-    var requiredVersion = '9992344234';
-
-
-/*    vm.sendMessageToExtension = function () {
-      chrome.runtime.sendMessage(id, {action: "id", value : id}, function(response) {
-        if(response && (response.id == id)) //extension installed
-        {
-          console.log(response);
-        }
-        else //extension not installed
-        {
-          console.log("Please consider installig extension");
-        }
-
+    function getAllOpenTabs() {
+      chrome.runtime.sendMessage(extensionId, ({tabsRequested: true}), function(response) {
+        vm.urlOpenTabList = response;
+        console.log('getAllOpenTabs: ' + response);
       });
-    }*/
-
-    function handleResponse(message) {
-      console.log('Message from the background script:');
     }
+    getAllOpenTabs();
 
-    function handleError(error) {
-      console.log('handleError:');
+    vm.toggleOpenTabs = function() {
+        vm.showTabs = !vm.showTabs;
     }
-
-    function notifyBackgroundPage(e) {
-      var sending = chrome.runtime.sendMessage({
-        greeting: "Greeting from the content script"
-      });
-      sending.then(handleResponse, handleError);
-    }
-
-    window.addEventListener("click", notifyBackgroundPage);
-
-
-
 
   });
