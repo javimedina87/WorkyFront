@@ -1,9 +1,51 @@
-<h1>Pomodoro</h1>
+<div id="pomodoro-screen">
 
-<button ng-click="pomodoroCtrl.toggleOpenTabs()">Show/Hide Open Tabs</button>
-
-<div ng-show="pomodoroCtrl.showTabs">
-  <div ng-repeat="tab in pomodoroCtrl.urlOpenTabList track by $index">
-    {{tab}}
+  <!--Title-->
+  <div id="pomodoro-title" class="row col-md-12 pomodoro-title">
+    <h1>Pomodoro</h1>
   </div>
+
+  <!--Description-->
+  <div id="pomodoro-description" class="row col-md-12 pomodoro-description">
+    <p>With this method you can improve your concentration through the temporary block of web pages</p>
+  </div>
+
+  <!--Url box-->
+  <div id="pomodoro-url-box" class="row col-md-12 pomodoro-url-box">
+
+<!--    <div id="pomodoro-current-open-tabs" class="row col-md-6 pomodoro-current-open-tabs">
+      <span>Current open tabs: ({{pomodoroCtrl.urlOpenTabList.length}})</span>
+      <ul id="pomodoro-current-open-tabs-list" class="pomodoro-current-open-tabs-list">
+        <li ng-repeat="tab in pomodoroCtrl.urlOpenTabList">
+          {{tab}} - - {{$index}}
+        </li>
+      </ul>
+      <button class="row btn btn-primary" ng-click="pomodoroCtrl.getCurrentOpenTabs()">Refresh tabs</button>
+    </div>
+
+    <div id="pomodoro-blocked-tabs" class="row col-md-6 pomodoro-blocked-tabs">
+      <span>Add new website to block list:</span>
+      <form ng-submit="pomodoroCtrl.addNewWebsiteToBlockList()">
+        <input type="type" ng-model="pomodoroCtrl.newWebsiteToBlock">
+      </form>
+
+      <span>{{pomodoroCtrl.newWebsite}}</span>
+
+    </div>-->
+    <div id="pomodoro-current-open-tabs" class="row col-md-6 pomodoro-current-open-tabs">
+      <ul ui-sortable="sortableOptions1" ng-model="pomodoroCtrl.urlOpenTabList">
+        <li ng-repeat="tab in pomodoroCtrl.urlOpenTabList">{{tab}} - {{$index}}</li>
+      </ul>
+    </div>
+
+    <div id="pomodoro-blocked-tabs" class="row col-md-6 pomodoro-blocked-tabs">
+      <ul ui-sortable="sortableOptions2" ng-model="pomodoroCtrl.urlOpenTabList2">
+        <li ng-repeat="tab in pomodoroCtrl.urlOpenTabList2">{{tab}} - {{$index}}</li>
+      </ul>
+    </div>
+
+  </div>
+
+
+
 </div>

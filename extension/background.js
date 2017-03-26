@@ -12,8 +12,28 @@ chrome.runtime.onMessageExternal.addListener(
   }
 );
 
+//Redirect url - Receives message from app
+
+/*chrome.runtime.onMessageExternal.addListener(
+  function(message, sender, sendResponse) {
+    queryInfo = new Object();
+    queryInfo.active = true;
+    chrome.tabs.query(queryInfo, function(result) {
+      var activeTab = result[0].id;
+      updateProperties = new Object();
+      updateProperties.url = 'http://www.error.com/';
+      chrome.tabs.update(activeTab, updateProperties, function() {
+        console.log('Redirected!')
+      });
+    });
+    return true;
+  }
+);*/
+
+
 chrome.webRequest.onBeforeRequest.addListener(
   function(details) {
+
     //Set url error from my project to being redirected
     var workyFrontError = "http://localhost:9000/#!/error";
 
@@ -32,6 +52,16 @@ chrome.webRequest.onBeforeRequest.addListener(
   { urls: ["<all_urls>"] }, ["blocking"]);
 
 
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+  console.log('onUpdated - Start');
+  chrome.runtime.send
+
+
+});
+
+chrome.tabs.onReplaced.addListener(function(tabId, changeInfo, tab) {
+  console.log('onReplaced new tab');
+});
 
 
 /*{ urls: ["*://!*.facebook.com/!*", "*://!*.facebook.net/!*"] }, ["blocking"]);*/

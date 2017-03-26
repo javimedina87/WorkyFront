@@ -1,0 +1,27 @@
+.pomodoro-title {
+  background-color: #9acfea;
+  text-align: center;
+}
+
+.pomodoro-description {
+  background-color: #66afe9;
+  text-align: center;
+}
+
+.pomodoro-url-box {
+  background-color: powderblue;
+}
+
+.pomodoro-current-open-tabs {
+  background-color: darkseagreen;
+  border: 3px solid green;
+}
+
+#pomodoro-current-open-tabs-list li {
+  list-style: disc;
+}
+
+.pomodoro-blocked-tabs {
+  background-color: indianred;
+  border: 3px solid red;
+}

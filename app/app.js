@@ -8,7 +8,8 @@ angular
     'ui.router',
     'ui.bootstrap',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.sortable'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
 
