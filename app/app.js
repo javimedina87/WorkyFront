@@ -34,11 +34,11 @@ angular
         controller: 'PomodoroController',
         controllerAs: 'pomodoroCtrl'
       })
-      .state('products', {
-        url: '/products',
-        templateUrl: 'components/products/products.html',
-        controller: 'ProductsController',
-        controllerAs: 'productsCtrl'
+      .state('users', {
+        url: '/users',
+        templateUrl: 'components/users/users.html',
+        controller: 'UserController',
+        controllerAs: 'userCtrl'
       })
       .state('error', {
         url: '/error',

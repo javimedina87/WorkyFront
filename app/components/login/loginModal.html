@@ -1,0 +1,79 @@
+<!--Login modal-->
+<div ng-if="loginModalCtrl.loginFlag">
+
+  <div class="modal-header">
+    <h3 class="modal-title">Login</h3>
+  </div>
+
+  <div class="modal-body">
+    <div class="col-md-12">
+      <form name="form" ng-submit="loginCtrl.login()">
+        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" class="form-control" ng-model="loginModalCtrl.username" required />
+          <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" class="form-control" ng-model="loginModalCtrl.password" required />
+          <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" ng-click="loginModalCtrl.login()">Login</button>
+        </div>
+
+        <div ng-show="loginModalCtrl.loginError" ng-class="{'has-error': loginModalCtrl.loginError}">
+          <span class="help-block">{{loginModalCtrl.loginError}}</span>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+  </div>
+
+</div>
+
+
+<!--Register modal-->
+<div ng-if="!loginModalCtrl.loginFlag">
+
+  <div class="modal-header">
+    <h3 class="modal-title">Register</h3>
+  </div>
+
+  <div class="modal-body">
+    <div class="col-md-12">
+      <form name="formRegister" ng-submit="loginCtrl.register()">
+        <div class="form-group" ng-class="{ 'has-error': formRegister.usernameRegister.$dirty && formRegister.usernameRegister.$error.required }">
+          <label for="usernameRegister">Username</label>
+          <input type="text" name="usernameRegister" id="usernameRegister" class="form-control" ng-model="loginModalCtrl.usernameRegister" required />
+          <span ng-show="formRegister.usernameRegister.$dirty && formRegister.usernameRegister.$error.required" class="help-block">Username is required</span>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': formRegister.passwordRegister.$dirty && formRegister.passwordRegister.$error.required }">
+          <label for="passwordRegister">Password</label>
+          <input type="password" name="passwordRegister" id="passwordRegister" class="form-control" ng-model="loginModalCtrl.passwordRegister" required />
+          <span ng-show="formRegister.passwordRegister.$dirty && formRegister.passwordRegister.$error.required" class="help-block">Password is required</span>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" ng-disabled="formRegister.$invalid" class="btn btn-primary" ng-click="loginModalCtrl.register()">Register</button>
+        </div>
+
+        <div ng-show="loginModalCtrl.registerError" ng-class="{'has-error': loginModalCtrl.registerError}">
+          <span class="help-block">{{loginModalCtrl.registerError}}</span>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+  </div>
+
+</div>
+

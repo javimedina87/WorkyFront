@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('workyFrontApp')
-  .controller('ProductsController', function ($http, productService) {
+  .controller('UserController', function ($http, usersService) {
     var vm = this;
 
     function getUsers() {
-      return productService.getAllUsers()
+      return usersService.getAllUsers()
         .then(function(data) {
           vm.users = data;
       });

@@ -11,14 +11,15 @@ angular
     var viewModel = this;
 
     //Login modal
-    viewModel.openLoginModal = function () {
-      console.log("login enter");
+    viewModel.openUserModal = function (loginFlag) {
 
       var loginModal = $uibModal.open({
-        templateUrl: 'templates/loginModal.html',
-        controller: 'LoginController',
-        controllerAs: 'loginCtrl',
-        resolve: {}
+        templateUrl: 'components/login/loginModal.html',
+        controller: 'LoginModalController',
+        controllerAs: 'loginModalCtrl',
+        resolve: {
+          loginFlag: loginFlag
+        }
       });
 
       loginModal.result.then(function () {
@@ -26,10 +27,6 @@ angular
       }, function () {
         $log.info('Dimissed login modal');
       });
-
-      console.log("login out");
     }
-
-
 
   });

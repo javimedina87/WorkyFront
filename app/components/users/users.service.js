@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('workyFrontApp')
-  .factory('productService', function ($http) {
+  .factory('usersService', function ($http) {
 
     return {
       getAllUsers: getAllUsers
