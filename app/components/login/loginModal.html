@@ -1,5 +1,5 @@
 <!--Login modal-->
-<div ng-if="loginModalCtrl.loginFlag">
+<div ng-if="loginModalCtrl.loginModalData.loginFlag">
 
   <div class="modal-header">
     <h3 class="modal-title">Login</h3>
@@ -39,7 +39,7 @@
 
 
 <!--Register modal-->
-<div ng-if="!loginModalCtrl.loginFlag">
+<div ng-if="!loginModalCtrl.loginModalData.loginFlag">
 
   <div class="modal-header">
     <h3 class="modal-title">Register</h3>
@@ -58,6 +58,13 @@
           <label for="passwordRegister">Password</label>
           <input type="password" name="passwordRegister" id="passwordRegister" class="form-control" ng-model="loginModalCtrl.passwordRegister" required />
           <span ng-show="formRegister.passwordRegister.$dirty && formRegister.passwordRegister.$error.required" class="help-block">Password is required</span>
+        </div>
+
+        <div class="form-group">
+          <label for="emailRegister">Email</label>
+          <input type="email" name="emailRegister" id="emailRegister" class="form-control" ng-model="loginModalCtrl.emailRegister" required />
+          <span ng-show="formRegister.emailRegister.$error.email" class="error">Not valid email</span>
+          <span ng-show="formRegister.emailRegister.$error.required" class="error">Email is required</span>
         </div>
 
         <div class="form-actions">

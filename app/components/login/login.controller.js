@@ -7,26 +7,41 @@ angular
     controller: 'LoginController',
     controllerAs: 'loginCtrl'
   })
-  .controller('LoginController', function($uibModal, $log) {
-    var viewModel = this;
+  .controller('LoginController', function($uibModal) {
+    var vm = this;
+    vm.loginModalData = {
+      loginFlag : false,
+      username: null,
+      userIsLogged: false
+    };
 
     //Login modal
-    viewModel.openUserModal = function (loginFlag) {
+    vm.openUserModal = function (loginFlag) {
 
-      var loginModal = $uibModal.open({
+      //Set flag received for login or register modal
+      vm.loginModalData.loginFlag = loginFlag;
+
+      $uibModal.open({
         templateUrl: 'components/login/loginModal.html',
         controller: 'LoginModalController',
         controllerAs: 'loginModalCtrl',
         resolve: {
-          loginFlag: loginFlag
+          loginModalData : function () {
+            return vm.loginModalData;
+          }
         }
-      });
+      }).result.then(function (result) {
+        console.log('Result del login modal');
+        vm.loginModalData = result;
 
-      loginModal.result.then(function () {
-        $log.info('Result del login modal');
       }, function () {
-        $log.info('Dimissed login modal');
+        console.log('Dimissed login modal');
       });
+    }
+
+    vm.logOut = function () {
+      vm.loginModalData.username = null;
+      vm.loginModalData.userIsLogged = false;
     }
 
   });

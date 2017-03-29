@@ -40,6 +40,12 @@ angular
         controller: 'UserController',
         controllerAs: 'userCtrl'
       })
+      .state('workys', {
+        url: '/workys',
+        templateUrl: 'components/workys/workys.html',
+        controller: 'WorkysController',
+        controllerAs: 'workysCtrl'
+      })
       .state('error', {
         url: '/error',
         templateUrl: 'components/error/error.html',

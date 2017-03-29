@@ -1,4 +1,12 @@
 <div class="nav navbar-nav navbar-right">
-  <li ng-click="loginCtrl.openUserModal(login = true)"><a>Login modal</a></li>
-  <li ng-click="loginCtrl.openUserModal(login = false)"><a>Register modal</a></li>
+
+  <div ng-if="!loginCtrl.loginModalData.userIsLogged">
+    <li><a ng-click="loginCtrl.openUserModal(loginFlag = true)">Login modal</a></li>
+    <li><a ng-click="loginCtrl.openUserModal(loginFlag = false)">Register modal</a></li>
+  </div>
+
+  <div ng-if="loginCtrl.loginModalData.userIsLogged">
+    <li>Welcome {{loginCtrl.loginModalData.username}}</li>
+    <li><a ng-click="loginCtrl.logOut()">Logout</a></li>
+  </div>
 </div>
