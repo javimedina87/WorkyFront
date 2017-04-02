@@ -17,12 +17,15 @@
     <div class="header">
       <div class="container-fluid">
         <div class="nav navbar-nav navbar-left">
+          <!--//TODO logo should be 145x50 (with text) 'logo + Worky'-->
+          <li><img src="images/workyTest100.png" alt="logo worky"></li>
           <li><a ui-sref="home">Home item</a></li>
           <li><a ui-sref="about">About item</a></li>
           <li><a ui-sref="pomodoro">Pomodoro</a></li>
           <li><a ui-sref="users">Users</a></li>
         </div>
-        <login></login>
+        <login aut="$root.isAuthenticated"></login>
+
       </div>
     </div>
 
@@ -48,6 +51,7 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-ui-sortable/sortable.js"></script>
+    <script src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
 
     <!--App scripts-->
     <script src="app.js"></script>
@@ -61,6 +65,7 @@
     <script src="components/users/users.service.js"></script>
     <script src="components/error/error.controller.js"></script>
     <script src="components/workys/workys.controller.js"></script>
+    <script src="components/jwt/jwtHelper.service.js"></script>
 
   </body>
 

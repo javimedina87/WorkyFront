@@ -9,9 +9,38 @@ angular
     'ui.bootstrap',
     'ngSanitize',
     'ngTouch',
-    'ui.sortable'
+    'ui.sortable',
+    'angular-jwt'
   ])
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $httpProvider, jwtOptionsProvider) {
+
+/*    jwtOptionsProvider.config({
+      whiteListedDomains: ['localhost'],
+      unauthenticatedRedirectPath: '/#!/about'
+    });*/
+
+    jwtOptionsProvider.config({
+      whiteListedDomains: ['localhost'],
+      unauthenticatedRedirector: ['$state', function($state) {
+        $state.go('home');
+      }],
+      tokenGetter: ['jwtHelperService', function(jwtHelperService) {
+        var token = localStorage.getItem('worky_jwt');
+        if (token != null){
+          return jwtHelperService.decodingToken(token);
+        }else {
+          return token;
+        }
+      }]
+    });
+
+/*    jwtInterceptorProvider.tokenGetter = function () {
+      return localStorage.getItem('JWT');
+    }*/
+
+    $httpProvider.interceptors.push('jwtInterceptor');
+
+
 
     $urlRouterProvider.otherwise('/error');
 
@@ -26,7 +55,10 @@ angular
         url: '/about',
         templateUrl: 'components/about/about.html',
         controller: 'AboutController',
-        controllerAs: 'aboutCtrl'
+        controllerAs: 'aboutCtrl',
+        data: {
+          requiresLogin: true
+        }
       })
       .state('pomodoro', {
         url: '/pomodoro',
@@ -52,4 +84,13 @@ angular
         controller: 'ErrorController',
         controllerAs: 'errorCtrl'
       });
+  })
+  .run(function(authManager, $rootScope) {
+
+    $rootScope.isAuthenticated = authManager.isAuthenticated();
+    console.log('Autenticado app: ' + authManager.isAuthenticated());
+
+    authManager.redirectWhenUnauthenticated();
+
   });
+

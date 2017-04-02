@@ -15,6 +15,7 @@ angular.module('workyFrontApp')
         .catch(loginError);
 
       function loginSuccessful(response) {
+        localStorage.setItem("worky_jwt", response.data.JWT);
         return response.data[0];
       }
 

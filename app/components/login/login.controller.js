@@ -5,15 +5,20 @@ angular
   .component('login', {
     templateUrl: 'components/login/login.html',
     controller: 'LoginController',
-    controllerAs: 'loginCtrl'
+    controllerAs: 'loginCtrl',
+    bindings: {
+      aut: '='
+    }
   })
-  .controller('LoginController', function($uibModal) {
+  .controller('LoginController', function($uibModal, $rootScope) {
     var vm = this;
     vm.loginModalData = {
       loginFlag : false,
       username: null,
       userIsLogged: false
     };
+
+    console.log('aut de login: ' + vm.aut);
 
     //Login modal
     vm.openUserModal = function (loginFlag) {
@@ -33,6 +38,7 @@ angular
       }).result.then(function (result) {
         console.log('Result del login modal');
         vm.loginModalData = result;
+
 
       }, function () {
         console.log('Dimissed login modal');
