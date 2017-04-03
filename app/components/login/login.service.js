@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('workyFrontApp')
-  .factory('loginService', function ($http) {
+  .factory('loginService', function ($http, $rootScope) {
 
     return {
       login: login,
@@ -16,6 +16,7 @@ angular.module('workyFrontApp')
 
       function loginSuccessful(response) {
         localStorage.setItem("worky_jwt", response.data.JWT);
+        $rootScope.isAuthenticated = true;
         return response.data[0];
       }
 

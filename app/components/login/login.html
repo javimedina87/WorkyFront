@@ -1,23 +1,13 @@
 <div class="nav navbar-nav navbar-right">
 
-  <div ng-if="!loginCtrl.loginModalData.userIsLogged">
+  <div ng-if="!$root.isAuthenticated">
     <li><a ng-click="loginCtrl.openUserModal(loginFlag = true)">Login modal</a></li>
     <li><a ng-click="loginCtrl.openUserModal(loginFlag = false)">Register modal</a></li>
   </div>
 
-  <div ng-if="loginCtrl.loginModalData.userIsLogged">
+  <div ng-if="$root.isAuthenticated">
     <li>Welcome {{loginCtrl.loginModalData.username}}</li>
     <li><a ng-click="loginCtrl.logOut()">Logout</a></li>
   </div>
-
-  <div>aut - {{loginCtrl.aut}}</div>
-
-  <div>{{$root.isAuthenticated}}</div>
-
-
-<!--  <button ng-if="!isAuthenticated">Log In Auth</button>
-  <button ng-if="isAuthenticated">Log Out Auth</button>-->
-
-
 
 </div>

@@ -5,10 +5,7 @@ angular
   .component('login', {
     templateUrl: 'components/login/login.html',
     controller: 'LoginController',
-    controllerAs: 'loginCtrl',
-    bindings: {
-      aut: '='
-    }
+    controllerAs: 'loginCtrl'
   })
   .controller('LoginController', function($uibModal, $rootScope) {
     var vm = this;
@@ -47,7 +44,8 @@ angular
 
     vm.logOut = function () {
       vm.loginModalData.username = null;
-      vm.loginModalData.userIsLogged = false;
+      localStorage.removeItem("worky_jwt");
+      $rootScope.isAuthenticated = false;
     }
 
   });
