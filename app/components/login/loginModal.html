@@ -8,9 +8,9 @@
   <div class="modal-body">
     <div class="col-md-12">
       <form name="form" ng-submit="loginCtrl.login()">
-        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-          <input type="text" name="username" placeholder="Username" id="username" class="form-control" ng-model="loginModalCtrl.username" required />
-          <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+        <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+          <input type="email" name="email" placeholder="Email" id="email" class="form-control" ng-model="loginModalCtrl.email" required />
+          <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email is required</span>
         </div>
 
         <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">

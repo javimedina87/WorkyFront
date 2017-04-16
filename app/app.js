@@ -14,11 +14,6 @@ angular
   ])
   .config(function ($stateProvider, $urlRouterProvider, $httpProvider, jwtOptionsProvider) {
 
-/*    jwtOptionsProvider.config({
-      whiteListedDomains: ['localhost'],
-      unauthenticatedRedirectPath: '/#!/about'
-    });*/
-
     jwtOptionsProvider.config({
       whiteListedDomains: ['localhost'],
       unauthenticatedRedirector: ['$state', function($state) {
@@ -27,20 +22,14 @@ angular
       tokenGetter: ['jwtHelperService', function(jwtHelperService) {
         var token = localStorage.getItem('worky_jwt');
         if (token != null){
-          return jwtHelperService.decodingToken(token);
+          return jwtHelperService.decodeToken(token);
         }else {
           return token;
         }
       }]
     });
 
-/*    jwtInterceptorProvider.tokenGetter = function () {
-      return localStorage.getItem('JWT');
-    }*/
-
     $httpProvider.interceptors.push('jwtInterceptor');
-
-
 
     $urlRouterProvider.otherwise('/error');
 
@@ -86,11 +75,8 @@ angular
       });
   })
   .run(function(authManager, $rootScope) {
-
     $rootScope.isAuthenticated = authManager.isAuthenticated();
-    console.log('Autenticado app: ' + authManager.isAuthenticated());
 
     authManager.redirectWhenUnauthenticated();
-
   });
 

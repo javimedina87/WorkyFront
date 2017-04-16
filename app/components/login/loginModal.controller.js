@@ -6,7 +6,7 @@ angular.module('workyFrontApp')
     vm.loginModalData = loginModalData;
 
     vm.login = function () {
-      var credentials = {username: vm.username, password: vm.password};
+      var credentials = {email: vm.email, password: vm.password};
       return loginService.login(credentials).then(function(data) {
 
           if(!data.error) {
@@ -14,8 +14,8 @@ angular.module('workyFrontApp')
             vm.loginModalData.userIsLogged = true;
             vm.loginError = null;
             $uibModalInstance.close(vm.loginModalData);
-            /*closeModal();*/
-            /*$state.go('home');*/
+            closeModal();
+            $state.go('home');
           } else {
             vm.loginError = data.error;
             vm.loginModalData.userIsLogged = false;

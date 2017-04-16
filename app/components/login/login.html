@@ -1,13 +1,19 @@
-<div class="nav navbar-nav navbar-right">
+<div class="col-xs-12" ng-if="!$root.isAuthenticated">
+  <li class="col-xs-6 nav-item">
+    <a class="nav-link" ng-click="loginCtrl.openUserModal(loginFlag = true)">Login modal</a>
+  </li>
 
-  <div ng-if="!$root.isAuthenticated">
-    <li><a ng-click="loginCtrl.openUserModal(loginFlag = true)">Login modal</a></li>
-    <li><a ng-click="loginCtrl.openUserModal(loginFlag = false)">Register modal</a></li>
-  </div>
+  <li class="col-xs-6 nav-item">
+    <a class="nav-link" ng-click="loginCtrl.openUserModal(loginFlag = false)">Register modal</a>
+  </li>
+</div>
 
-  <div ng-if="$root.isAuthenticated">
-    <li>Welcome {{loginCtrl.loginModalData.username}}</li>
-    <li><a ng-click="loginCtrl.logOut()">Logout</a></li>
-  </div>
+<div ng-if="$root.isAuthenticated">
+  <li class="nav-item">
+    <span>Welcome {{loginCtrl.loginModalData.username}}</span>
+  </li>
 
+  <li class="nav-item">
+    <a class="nav-link" ng-click="loginCtrl.logOut()">Logout</a>
+  </li>
 </div>

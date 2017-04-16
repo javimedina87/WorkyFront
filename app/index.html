@@ -4,37 +4,72 @@
     <meta charset="utf-8">
     <base href="/">
     <title>Worky</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/pomodoro.css">
   </head>
 
   <body ng-app="workyFrontApp">
 
-    <div class="header">
-      <div class="container-fluid">
-        <div class="nav navbar-nav navbar-left">
-          <!--//TODO logo should be 145x50 (with text) 'logo + Worky'-->
-          <li><img src="images/workyTest100.png" alt="logo worky"></li>
-          <li><a ui-sref="home">Home item</a></li>
-          <li><a ui-sref="about">About item</a></li>
-          <li><a ui-sref="pomodoro">Pomodoro</a></li>
-          <li><a ui-sref="users">Users</a></li>
-        </div>
-        <login></login>
+      <nav>
 
-      </div>
-    </div>
+        <ul class="col-xs-12 left-menu-items">
+          <li class="col-xs-10">
+            <a ui-sref="home">
+              <img src="images/workyTest100.png" width="145" height="50" alt="" />
+            </a>
+          </li>
+
+          <login class="col-xs-2 right-menu-items"></login>
+        </ul>
+
+      </nav>
+
+<!--    <nav class="navbar">
+
+      <ul class="navbar-nav left-menu-items">
+        <li class="nav-item">
+          <a ui-sref="home">
+            <img src="images/workyTest100.png" width="145" height="50" alt="" />
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" ui-sref="about">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" ui-sref="pomodoro">Pomodoro</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" ui-sref="users">Users</a>
+        </li>
+
+        &lt;!&ndash;Login component&ndash;&gt;
+        <login class="right-menu-items"></login>
+      </ul>
+
+    </nav>-->
+
+
+
+
+
+
+
+
+
 
     <div class="container-fluid body-app">
       <ui-view></ui-view>
     </div>
 
-    <div class="footer">
-      <p>Footer</p>
+    <div class="container-fluid footer">
+      <h6>Footer</h6>
     </div>
 
 
@@ -42,7 +77,7 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/jquery-ui/jquery-ui.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="styles/bootstrap/js/bootstrap.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>

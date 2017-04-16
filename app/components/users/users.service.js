@@ -18,7 +18,7 @@ angular.module('workyFrontApp')
       }
 
       function getAllUsersFailed(error) {
-        console.log('getAllUsersFailed: ' + error.data);
+        console.log('getAllUsersFailed: ' + error.status);
       }
     }
 

@@ -15,9 +15,7 @@ angular
       userIsLogged: false
     };
 
-    console.log('aut de login: ' + vm.aut);
-
-    //Login modal
+    //Login or register modal
     vm.openUserModal = function (loginFlag) {
 
       //Set flag received for login or register modal

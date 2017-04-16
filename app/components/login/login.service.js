@@ -32,6 +32,8 @@ angular.module('workyFrontApp')
         .catch(registerError);
 
       function registerSuccessful(response) {
+        localStorage.setItem("worky_jwt", response.data.JWT);
+        $rootScope.isAuthenticated = true;
         return response.data;
       }
 
